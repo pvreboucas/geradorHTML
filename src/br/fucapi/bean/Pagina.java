@@ -1,12 +1,14 @@
-package brfucapi.negocio;
+package br.fucapi.bean;
 import java.util.ArrayList;
+
+import br.fucapi.persistencia.Css;
 
 public class Pagina {
 	
 	private Cabecalho cabecalho;
 	private BarraLateral barraLateralDireita;
 	private BarraLateral barraLateralEsquerda;
-	private Layout layout;
+	private Css layout;
 	private Rodape rodape;
 	private ArrayList<Post> listaPost;
 	private Post post;
@@ -15,7 +17,7 @@ public class Pagina {
 	public Pagina(Cabecalho cabecalho, BarraLateral barraLateralDireita,
 			BarraLateral barraLateralEsquerda, Rodape rodape,
 			ArrayList<Post> listaPost, String uri, String border, String height, String margin, String padding, String width) {
-		this.layout = new Layout(height, width, border, margin, padding);
+		this.layout = new Css(height, width, border, margin, padding);
 		this.cabecalho = cabecalho;
 		this.barraLateralDireita = barraLateralDireita;
 		this.barraLateralEsquerda = barraLateralEsquerda;
@@ -26,7 +28,7 @@ public class Pagina {
 	
 	public Pagina(Cabecalho cabecalho, Rodape rodape,
 			Post post, String uri, String border, String height, String margin, String padding, String width) {
-		this.layout = new Layout(height, width, border, margin, padding);
+		this.layout = new Css(height, width, border, margin, padding);
 		this.cabecalho = cabecalho;
 		this.rodape = rodape;
 		this.post = post;
@@ -66,11 +68,11 @@ public class Pagina {
 		this.barraLateralEsquerda = barraLateralEsquerda;
 	}
 
-	public Layout getLayout() {
+	public Css getLayout() {
 		return layout;
 	}
 
-	public void setLayout(Layout layout) {
+	public void setLayout(Css layout) {
 		this.layout = layout;
 	}
 

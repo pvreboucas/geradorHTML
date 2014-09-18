@@ -1,8 +1,10 @@
-package brfucapi.negocio;
+package br.fucapi.bean;
+
+import br.fucapi.persistencia.Css;
 
 public class Rodape {
 	
-	private Layout layout;
+	private Css layout;
 	private String contatoTelefone;
 	private String contatoEmail;
 	private String contatoEndereco;
@@ -10,7 +12,7 @@ public class Rodape {
 	
 	public Rodape(String contatoTelefone, String contatoEmail,
 			String contatoEndereco, String copyright, String border, String height, String margin, String padding, String width) {
-		this.layout = new Layout(height, width, border, margin, padding);
+		this.layout = new Css(height, width, border, margin, padding);
 		this.contatoTelefone = contatoTelefone;
 		this.contatoEmail = contatoEmail;
 		this.contatoEndereco = contatoEndereco;
@@ -25,11 +27,11 @@ public class Rodape {
 				+ copyright + "]";
 	}
 
-	public Layout getLayout() {
+	public Css getLayout() {
 		return layout;
 	}
 
-	public void setLayout(Layout layout) {
+	public void setLayout(Css layout) {
 		this.layout = layout;
 	}
 

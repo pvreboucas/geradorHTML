@@ -1,5 +1,7 @@
-package brfucapi.negocio;
+package br.fucapi.bean;
 import java.sql.Date;
+
+import br.fucapi.persistencia.Css;
 
 
 public class Comentario {
@@ -8,7 +10,7 @@ public class Comentario {
 	private String email;
 	private String texto;
 	private Date data;
-	private Layout layout;
+	private Css layout;
 	
 	public Comentario(String nome, String email, String texto, Date data, String border, String hight, String margin, String padding, String width) {
 		this.layout.setBorder(border);
@@ -60,11 +62,11 @@ public class Comentario {
 		this.data = data;
 	}
 
-	public Layout getLayout() {
+	public Css getLayout() {
 		return layout;
 	}
 
-	public void setLayout(Layout layout) {
+	public void setLayout(Css layout) {
 		this.layout = layout;
 	}
 

@@ -1,6 +1,6 @@
-package brfucapi.negocio;
+package br.fucapi.persistencia;
 
-public class Layout {
+public class Css {
 	
 	private String hight;
 	private String width;
@@ -8,7 +8,7 @@ public class Layout {
 	private String margin;
 	private String padding;
 	
-	public Layout(String hight, String width, String border, String margin, String padding) {
+	public Css(String hight, String width, String border, String margin, String padding) {
 		this.hight = hight;
 		this.width = width;
 		this.border = border;
@@ -22,44 +22,46 @@ public class Layout {
 				+ border + ", margin=" + margin + ", padding=" + padding + "]";
 	}
 
-	public String getHight() {
-		return hight;
-	}
-
 	public void setHight(String hight) {
 		this.hight = hight;
-	}
-
-	public String getWidth() {
-		return width;
 	}
 
 	public void setWidth(String width) {
 		this.width = width;
 	}
 
-	public String getBorder() {
-		return border;
-	}
-
 	public void setBorder(String border) {
 		this.border = border;
-	}
-
-	public String getMargin() {
-		return margin;
 	}
 
 	public void setMargin(String margin) {
 		this.margin = margin;
 	}
 
-	public String getPadding() {
-		return padding;
-	}
-
 	public void setPadding(String padding) {
 		this.padding = padding;
 	}
+
+	public String getHight() {
+		return hight;
+	}
+
+	public String getWidth() {
+		return width;
+	}
+
+	public String getBorder() {
+		return border;
+	}
+
+	public String getMargin() {
+		return margin;
+	}
+
+	public String getPadding() {
+		return padding;
+	}
+	
+	
 
 }

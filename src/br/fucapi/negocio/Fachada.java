@@ -1,6 +1,15 @@
-package brfucapi.negocio;
+package br.fucapi.negocio;
 import java.sql.Date;
 import java.util.ArrayList;
+
+import br.fucapi.bean.BarraLateral;
+import br.fucapi.bean.Cabecalho;
+import br.fucapi.bean.Comentario;
+import br.fucapi.bean.Pagina;
+import br.fucapi.bean.Post;
+import br.fucapi.bean.Rodape;
+import br.fucapi.persistencia.Css;
+import br.fucapi.persistencia.Html;
 
 
 public class Fachada {
@@ -58,26 +67,7 @@ public class Fachada {
 		System.out.println(post.getLayout());
 		System.out.println(post.getUriPost());
 	}
-	
-	
-//	BarraLateral barraLateralDireita = new BarraLateral("Barra Lateral Direita", "100px", "100px", "1px", "1px", "1px");
-//	BarraLateral barraLateralEsquerda = new BarraLateral("Barra Lateral Esquerda", "100px", "100px", "1px", "1px", "1px");
-//	
-//	//CABEÇALHOS
-//	Cabecalho cabecalho = new Cabecalho("Titulo Cabecalho", "100px", "100px", "1px", "1px", "1px");
-//	
-//	//RODAPÉ
-//	Rodape rodape = new Rodape("9876-8764", "mail@fucapi.br", "Rua X S/N", "copyright", "100px", "100px", "1px", "1px", "1px");
-//	
-//	//POSTS
-//	Post post1 = new Post("Como instaciar Classes1", new Date(System.currentTimeMillis()), "/Como-instaciar-classes", "100px", "100px", "1px", "1px", "1px");
-//	Post post2 = new Post("Como instaciar Classes2", new Date(System.currentTimeMillis()), "/Como-instaciar-classes", "100px", "100px", "1px", "1px", "1px");
-//	Post post3 = new Post("Como instaciar Classes3", new Date(System.currentTimeMillis()), "/Como-instaciar-classes", "100px", "100px", "1px", "1px", "1px");
-//	Post post4 = new Post("Como instaciar Classes4", new Date(System.currentTimeMillis()), "/Como-instaciar-classes", "100px", "100px", "1px", "1px", "1px");
-//	Post post5 = new Post("Como instaciar Classes5", new Date(System.currentTimeMillis()), "/Como-instaciar-classes", "100px", "100px", "1px", "1px", "1px");
-//	
-//	ArrayList<Post> listPost = new ArrayList<Post>();
-
+		
 	public Pagina criarPaginaPrincipal(Cabecalho cabecalho, BarraLateral barraLateralDireita,
 			BarraLateral barraLateralEsquerda, Rodape rodape,
 			ArrayList<Post> listaPost, String uri, String border, String height, String margin, String padding, String width){
@@ -118,6 +108,18 @@ public class Fachada {
 		
 	}
 	
+	public void adicionarComentarioNoPost(Post post, Comentario comentario){
+		ArrayList<Comentario> listaComentario = post.getListaComentarios(); 
+		listaComentario.add(comentario);
+		post.setListaComentarios(listaComentario);
+	}
+	
+	public void removerComentarioNoPost(Post post, Comentario comentario){
+		ArrayList<Comentario> listaComentario = post.getListaComentarios(); 
+		listaComentario.remove(comentario);
+		post.setListaComentarios(listaComentario);
+	}
+	
 	public BarraLateral criarBarraLateral(String conteudo, String border, String hight, String margin, String padding, String width){
 		BarraLateral barraLateral = new BarraLateral(conteudo, border, hight, margin, padding, width);
 		return barraLateral;
@@ -133,4 +135,86 @@ public class Fachada {
 		
 	}
 	
+	public String getCssScriptBarraLateral(BarraLateral barralateral, Html html){
+		String css;
+
+		css = html+"{"
+				+"height:"+barralateral.getLayout().getHight()+";"
+				+"width:"+barralateral.getLayout().getWidth()+";"
+				+"border:"+barralateral.getLayout().getBorder()+";"
+				+"margin:"+barralateral.getLayout().getMargin()+";"
+				+"padding:"+barralateral.getLayout().getPadding()+";"
+				+"}";
+		return css;
+	}
+	
+	public String getCssScriptCabecalho(Cabecalho cabecalho, Html html){
+		String css;
+
+		css = html+"{"
+				+"height:"+cabecalho.getLayout().getHight()+";"
+				+"width:"+cabecalho.getLayout().getWidth()+";"
+				+"border:"+cabecalho.getLayout().getBorder()+";"
+				+"margin:"+cabecalho.getLayout().getMargin()+";"
+				+"padding:"+cabecalho.getLayout().getPadding()+";"
+				+"}";
+		return css;
+	}
+	
+	public String getCssScriptComentario(Comentario comentario, Html html){
+		String css;
+
+		css = html+"{"
+				+"height:"+comentario.getLayout().getHight()+";"
+				+"width:"+comentario.getLayout().getWidth()+";"
+				+"border:"+comentario.getLayout().getBorder()+";"
+				+"margin:"+comentario.getLayout().getMargin()+";"
+				+"padding:"+comentario.getLayout().getPadding()+";"
+				+"}";
+		return css;
+	}
+	
+	public String getCssScriptPagina(Pagina pagina, Html html){
+		String css;
+
+		css = html+"{"
+				+"height:"+pagina.getLayout().getHight()+";"
+				+"width:"+pagina.getLayout().getWidth()+";"
+				+"border:"+pagina.getLayout().getBorder()+";"
+				+"margin:"+pagina.getLayout().getMargin()+";"
+				+"padding:"+pagina.getLayout().getPadding()+";"
+				+"}";
+		return css;
+	}
+	
+	public String getCssScriptPost(Post post, Html html){
+		String css;
+
+		css = html+"{"
+				+"height:"+post.getLayout().getHight()+";"
+				+"width:"+post.getLayout().getWidth()+";"
+				+"border:"+post.getLayout().getBorder()+";"
+				+"margin:"+post.getLayout().getMargin()+";"
+				+"padding:"+post.getLayout().getPadding()+";"
+				+"}";
+		return css;
+	}
+	
+	public String getCssScriptRodape(Rodape rodape, Html html){
+		String css;
+
+		css = html+"{"
+				+"height:"+rodape.getLayout().getHight()+";"
+				+"width:"+rodape.getLayout().getWidth()+";"
+				+"border:"+rodape.getLayout().getBorder()+";"
+				+"margin:"+rodape.getLayout().getMargin()+";"
+				+"padding:"+rodape.getLayout().getPadding()+";"
+				+"}";
+		return css;
+	}
+	
+	public String criarHtml(String html, String css){
+		String docHtml;
+		return docHtml;
+	}
 }

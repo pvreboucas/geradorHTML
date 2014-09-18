@@ -1,12 +1,14 @@
-package brfucapi.negocio;
+package br.fucapi.bean;
+
+import br.fucapi.persistencia.Css;
 
 public class BarraLateral {
 
-	private Layout layout;
+	private Css layout;
 	private String conteudo;
 	
 	public BarraLateral(String conteudo, String border, String hight, String margin, String padding, String width) {
-		this.layout = new Layout(hight, width, border, margin, padding);
+		this.layout = new Css(hight, width, border, margin, padding);
 		this.conteudo = conteudo;
 	}
 
@@ -16,11 +18,11 @@ public class BarraLateral {
 				+ "]";
 	}
 
-	public Layout getLayout() {
+	public Css getLayout() {
 		return layout;
 	}
 
-	public void setLayout(Layout layout) {
+	public void setLayout(Css layout) {
 		this.layout = layout;
 	}
 

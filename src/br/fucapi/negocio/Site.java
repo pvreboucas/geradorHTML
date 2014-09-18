@@ -1,6 +1,12 @@
-package brfucapi.negocio;
+package br.fucapi.negocio;
 import java.sql.Date;
 import java.util.ArrayList;
+
+import br.fucapi.bean.BarraLateral;
+import br.fucapi.bean.Cabecalho;
+import br.fucapi.bean.Pagina;
+import br.fucapi.bean.Post;
+import br.fucapi.bean.Rodape;
 
 
 public class Site {

@@ -1,19 +1,21 @@
-package brfucapi.negocio;
+package br.fucapi.bean;
 
 import java.sql.Date;
 import java.util.ArrayList;
 
+import br.fucapi.persistencia.Css;
+
 
 public class Post {
 	
-	private Layout layout;
+	private Css layout;
 	private ArrayList<Comentario> listaComentarios;
 	private String conteudo;
 	private Date data;
 	private String uriPost;
 	
 	public Post(String conteudo, Date data, String uriPost, String border, String hight, String margin, String padding, String width) {
-		this.layout = new Layout(hight, width, border, margin, padding);
+		this.layout = new Css(hight, width, border, margin, padding);
 		this.conteudo = conteudo;
 		this.data = data;
 		this.uriPost = uriPost;
@@ -25,10 +27,10 @@ public class Post {
 				+ uriPost + "]";
 	}
 	
-	public Layout getLayout() {
+	public Css getLayout() {
 		return layout;
 	}
-	public void setLayout(Layout layout) {
+	public void setLayout(Css layout) {
 		this.layout = layout;
 	}
 	
