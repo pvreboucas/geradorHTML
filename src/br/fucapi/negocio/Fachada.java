@@ -135,7 +135,7 @@ public class Fachada {
 		
 	}
 	
-	public String getCssScriptBarraLateral(BarraLateral barralateral, Html html){
+	public String getCssScriptBarraLateral(BarraLateral barralateral, String html){
 		String css;
 
 		css = html+"{"
@@ -148,7 +148,7 @@ public class Fachada {
 		return css;
 	}
 	
-	public String getCssScriptCabecalho(Cabecalho cabecalho, Html html){
+	public String getCssScriptCabecalho(Cabecalho cabecalho, String html){
 		String css;
 
 		css = html+"{"
@@ -161,7 +161,7 @@ public class Fachada {
 		return css;
 	}
 	
-	public String getCssScriptComentario(Comentario comentario, Html html){
+	public String getCssScriptComentario(Comentario comentario, String html){
 		String css;
 
 		css = html+"{"
@@ -174,7 +174,7 @@ public class Fachada {
 		return css;
 	}
 	
-	public String getCssScriptPagina(Pagina pagina, Html html){
+	public String getCssScriptPagina(Pagina pagina, String html){
 		String css;
 
 		css = html+"{"
@@ -187,7 +187,7 @@ public class Fachada {
 		return css;
 	}
 	
-	public String getCssScriptPost(Post post, Html html){
+	public String getCssScriptPost(Post post, String html){
 		String css;
 
 		css = html+"{"
@@ -200,7 +200,7 @@ public class Fachada {
 		return css;
 	}
 	
-	public String getCssScriptRodape(Rodape rodape, Html html){
+	public String getCssScriptRodape(Rodape rodape, String html){
 		String css;
 
 		css = html+"{"
@@ -214,7 +214,20 @@ public class Fachada {
 	}
 	
 	public String criarHtml(String html, String css){
-		String docHtml;
+		String docHtml = html;
+		//String sql = "SELECT * FROM clientes";  
+		//String resultado = "";  
+		StringTokenizer tkSql = new StringTokenizer(docHtml);  
+		  
+		while (tkSql.hasMoreTokens()) {  
+		   String token = tkSql.nextToken();  
+		  
+		   if (token.equalsIgnoreCase("<header>") || token.equalsIgnoreCase("</header>")) {  
+		      resultado += "   
+		 ";  
+		   }  
+		   resultado += token;  
+		}  
 		return docHtml;
 	}
 }
