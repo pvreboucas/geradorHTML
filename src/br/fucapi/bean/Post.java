@@ -13,8 +13,9 @@ public class Post {
 	private Date data;
 	private String uriPost;
 	
-	public Post(String conteudo, Date data, String uriPost/*, String border, String hight, String margin, String padding, String width*/) {
+	public Post(String conteudo, Date data, String uriPost, ArrayList<Comentario> listaComentario/*, String border, String hight, String margin, String padding, String width*/) {
 //		this.layout = new Css(hight, width, border, margin, padding);
+		this.listaComentarios = listaComentario;
 		this.conteudo = conteudo;
 		this.data = data;
 		this.uriPost = uriPost;

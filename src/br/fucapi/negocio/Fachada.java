@@ -13,6 +13,7 @@ import br.fucapi.bean.Pagina;
 import br.fucapi.bean.Post;
 import br.fucapi.bean.Rodape;
 //import br.fucapi.persistencia.Css;
+import br.fucapi.persistencia.Html;
 
 
 
@@ -96,9 +97,9 @@ public class Fachada {
 	}
 	
 	public Post criarPost(String conteudo, Date dataPost/*, String height, 
-			String width, String border, String margin, String padding*/, String uriPost){
+			String width, String border, String margin, String padding*/, String uriPost, ArrayList<Comentario> listaComentario){
 		
-		Post post = new Post(conteudo, dataPost, uriPost/*, border, height, margin, padding, width*/);
+		Post post = new Post(conteudo, dataPost, uriPost, listaComentario/*, border, height, margin, padding, width*/);
 		
 		return post;
 	}
@@ -138,9 +139,40 @@ public class Fachada {
 		
 	}
 	
+
+	public String inserirHtml(String comando){
+		String conteudo = "fimConteudo";
+		Html objHtml = new Html();
+		
+		if(comando.equals("abreParagrafo")){
+			conteudo = objHtml.getAbreP();
+		}
+		else if(comando.equals("fechaParagrafo")){
+			conteudo = objHtml.getFechaP();
+		}
+		if(comando.equals("abreH1")){
+			conteudo = objHtml.getAbreH1();
+		}
+		else if(comando.equals("fechaH1")){
+			conteudo = objHtml.getFechaH1();
+		}
+		else if(comando.equals("listar")){
+			System.out.println("\n\t\tLista de Comandos HTML"
+					+ "\nabreParagrafo - <p>"
+					+ "\nfechaParagrafo - </p>"
+					+ "\nabreH1 - <h1>"
+					+ "\nfechaH1 - </h1>"
+					+ "\nfimConteudo");
+		}
+		else{
+			conteudo = comando;
+		}
+		return conteudo;
+	}
+	
 	public void criarHtml(String html, String nomeDoc){
 
-		//Site/arquivoHtml - seria bom salvar nessa pasta
+		//Site/arquivoHtml - tem q salvar nessa pasta
 		BufferedWriter br;
 		try {
 			br = new BufferedWriter(new FileWriter(new File(nomeDoc+".html")));

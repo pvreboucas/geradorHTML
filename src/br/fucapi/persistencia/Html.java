@@ -16,7 +16,15 @@ public class Html {
 	private static String abreP = "<p>";
 	private static String abreBr = "<br>";
 	private static String abreB = "<b>";
-	private static String abreEm = "<em>";
+	private static String abreDiv = "<div>";
+	private static String abreSpan = "<span>";
+	private static String abreUl = "<ul>";
+	private static String abreOl = "<ol>";
+	private static String abreLi = "<li>";
+	private static String abreDl = "<dl>";
+	private static String abreDt = "<dt>";
+	private static String abreDd = "<dd>";
+	/*	private static String abreEm = "<em>";
 	private static String abreI = "<i>";
 	private static String abreSmall = "<small>";
 	private static String abreStrong = "<strong>";
@@ -37,14 +45,7 @@ public class Html {
 	private static String abreQ = "<q>";
 	private static String abreDfn = "<dfn>";
 	private static String abreCite = "<cite>";
-	private static String abreDiv = "<div>";
-	private static String abreSpan = "<span>";
-	private static String abreUl = "<ul>";
-	private static String abreOl = "<ol>";
-	private static String abreLi = "<li>";
-	private static String abreDl = "<dl>";
-	private static String abreDt = "<dt>";
-	private static String abreDd = "<dd>";
+	*/
 	
 	private static String fechaHtml = "</html>";
 	private static String fechaHead = "</head>";
@@ -60,7 +61,15 @@ public class Html {
 	private static String fechaP = "</p>";
 	private static String fechaBr = "</br>";
 	private static String fechaB = "</b>";
-	private static String fechaEm = "</em>";
+	private static String fechaDiv = "</div>";
+	private static String fechaSpan = "</span>";
+	private static String fechaUl = "</ul>";
+	private static String fechaOl = "</ol>";
+	private static String fechaLi = "</li>";
+	private static String fechaDl = "</dl>";
+	private static String fechaDt = "</dt>";
+	private static String fechaDd = "</dd>";
+	/*	private static String fechaEm = "</em>";
 	private static String fechaI = "</i>";
 	private static String fechaSmall = "</small>";
 	private static String fechaStrong = "</strong>";
@@ -81,14 +90,7 @@ public class Html {
 	private static String fechaQ = "</q>";
 	private static String fechaDfn = "</dfn>";
 	private static String fechaCite = "</cite>";
-	private static String fechaDiv = "</div>";
-	private static String fechaSpan = "</span>";
-	private static String fechaUl = "</ul>";
-	private static String fechaOl = "</ol>";
-	private static String fechaLi = "</li>";
-	private static String fechaDl = "</dl>";
-	private static String fechaDt = "</dt>";
-	private static String fechaDd = "</dd>";
+	*/
 	
 	public String getAbreHtml() {
 		return abreHtml;
@@ -131,69 +133,6 @@ public class Html {
 	}
 	public String getAbreB() {
 		return abreB;
-	}
-	public String getAbreEm() {
-		return abreEm;
-	}
-	public String getAbreI() {
-		return abreI;
-	}
-	public String getAbreSmall() {
-		return abreSmall;
-	}
-	public String getAbreStrong() {
-		return abreStrong;
-	}
-	public String getAbreSub() {
-		return abreSub;
-	}
-	public String getAbreSup() {
-		return abreSup;
-	}
-	public String getAbreIns() {
-		return abreIns;
-	}
-	public String getAbreDel() {
-		return abreDel;
-	}
-	public String getAbreMark() {
-		return abreMark;
-	}
-	public String getAbreCode() {
-		return abreCode;
-	}
-	public String getAbreKbd() {
-		return abreKbd;
-	}
-	public String getAbreSamp() {
-		return abreSamp;
-	}
-	public String getAbreVar() {
-		return abreVar;
-	}
-	public String getAbrePre() {
-		return abrePre;
-	}
-	public String getAbreAbbr() {
-		return abreAbbr;
-	}
-	public String getAbreAddress() {
-		return abreAddress;
-	}
-	public String getAbreBdo() {
-		return abreBdo;
-	}
-	public String getAbreBlockquote() {
-		return abreBlockquote;
-	}
-	public String getAbreQ() {
-		return abreQ;
-	}
-	public String getAbreDfn() {
-		return abreDfn;
-	}
-	public String getAbreCite() {
-		return abreCite;
 	}
 	public String getAbreDiv() {
 		return abreDiv;
@@ -243,76 +182,13 @@ public class Html {
 	public String getFechaB() {
 		return fechaB;
 	}
-	public String getFechaEm() {
-		return fechaEm;
-	}
-	public String getFechaI() {
-		return fechaI;
-	}
-	public String getFechaSmall() {
-		return fechaSmall;
-	}
-	public String getFechaStrong() {
-		return fechaStrong;
-	}
-	public String getFechaSub() {
-		return fechaSub;
-	}
-	public String getFechaSup() {
-		return fechaSup;
-	}
-	public String getFechaIns() {
-		return fechaIns;
-	}
-	public String getFechaDel() {
-		return fechaDel;
-	}
-	public String getFechaMark() {
-		return fechaMark;
-	}
-	public String getFechaCode() {
-		return fechaCode;
-	}
-	public String getFechaKbd() {
-		return fechaKbd;
-	}
-	public String getFechaSamp() {
-		return fechaSamp;
-	}
-	public String getFechaVar() {
-		return fechaVar;
-	}
-	public String getFechaPre() {
-		return fechaPre;
-	}
-	public String getFechaAbbr() {
-		return fechaAbbr;
-	}
-	public String getFechaAddress() {
-		return fechaAddress;
-	}
-	public String getFechaBdo() {
-		return fechaBdo;
-	}
-	public String getFechaBlockquote() {
-		return fechaBlockquote;
-	}
-	public String getFechaQ() {
-		return fechaQ;
-	}
-	public String getFechaDfn() {
-		return fechaDfn;
-	}
-	public String getFechaCite() {
-		return fechaCite;
-	}
 	public String getFechaDiv() {
 		return fechaDiv;
 	}
 	public String getFechaSpan() {
 		return fechaSpan;
 	}
-	public static String getAbreUl() {
+	public String getAbreUl() {
 		return abreUl;
 	}
 	public static String getAbreOl() {
@@ -348,6 +224,7 @@ public class Html {
 	public static String getFechaDd() {
 		return fechaDd;
 	}
+
 	
 	
 }
