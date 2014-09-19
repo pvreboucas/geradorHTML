@@ -1,4 +1,8 @@
 package br.fucapi.negocio;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.Date;
 import java.util.ArrayList;
 
@@ -8,8 +12,8 @@ import br.fucapi.bean.Comentario;
 import br.fucapi.bean.Pagina;
 import br.fucapi.bean.Post;
 import br.fucapi.bean.Rodape;
-import br.fucapi.persistencia.Css;
-import br.fucapi.persistencia.Html;
+//import br.fucapi.persistencia.Css;
+
 
 
 public class Fachada {
@@ -64,46 +68,45 @@ public class Fachada {
 			}
 		}
 		
-		System.out.println(post.getLayout());
 		System.out.println(post.getUriPost());
 	}
 		
 	public Pagina criarPaginaPrincipal(Cabecalho cabecalho, BarraLateral barraLateralDireita,
 			BarraLateral barraLateralEsquerda, Rodape rodape,
-			ArrayList<Post> listaPost, String uri, String border, String height, String margin, String padding, String width){
+			ArrayList<Post> listaPost, String uri/*, String border, String height, String margin, String padding, String width*/){
 	
-		Pagina pagina = new Pagina(cabecalho, barraLateralDireita, barraLateralEsquerda, rodape, listaPost, uri, border, height, margin, padding, width); 
+		Pagina pagina = new Pagina(cabecalho, barraLateralDireita, barraLateralEsquerda, rodape, listaPost, uri/*, border, height, margin, padding, width*/); 
 		
 		return pagina;
 		
 	}
 	
-	public Pagina criarPaginaPost(Cabecalho cabecalho, Rodape rodape, Post post,String uri,
-			String border,String height,String margin,String padding,String width){
+	public Pagina criarPaginaPost(Cabecalho cabecalho, Rodape rodape, Post post, String uri/*,
+			String border,String height,String margin,String padding,String width*/){
 	
-		Pagina pagina = new Pagina(cabecalho, rodape, post, uri, border, height, margin, padding, width);
+		Pagina pagina = new Pagina(cabecalho, rodape, post, uri/*, border, height, margin, padding, width*/);
 		return pagina;
 		
 	}
 
-	public Cabecalho criarCabecalho(String tituloCabecalho, String height, String width, String border, String margin, String padding){
-		Cabecalho cabecalho = new Cabecalho(tituloCabecalho, border, height, margin, padding, width);
+	public Cabecalho criarCabecalho(String tituloCabecalho/*, String height, String width, String border, String margin, String padding*/){
+		Cabecalho cabecalho = new Cabecalho(tituloCabecalho/*, border, height, margin, padding, width*/);
 		
 		return cabecalho;
 	}
 	
-	public Post criarPost(String conteudo, Date dataPost, ArrayList<Comentario> comentario, String height, 
-			String width, String border, String margin, String padding, String uriPost){
+	public Post criarPost(String conteudo, Date dataPost/*, String height, 
+			String width, String border, String margin, String padding*/, String uriPost){
 		
-		Post post = new Post(conteudo, dataPost, uriPost, border, height, margin, padding, width);
+		Post post = new Post(conteudo, dataPost, uriPost/*, border, height, margin, padding, width*/);
 		
 		return post;
 	}
 	
-	public Comentario criarComentario(String nome, String email, String texto, Date dataComentario, 
-			String height, String width, String border, String margin, String padding){
+	public Comentario criarComentario(String nome, String email, String texto, Date dataComentario/*, 
+			String height, String width, String border, String margin, String padding*/){
 		
-		Comentario comentario = new Comentario(nome, email, texto, dataComentario, border, height, margin, padding, width);
+		Comentario comentario = new Comentario(nome, email, texto, dataComentario/*, border, height, margin, padding, width*/);
 		return comentario;
 		
 	}
@@ -120,22 +123,38 @@ public class Fachada {
 		post.setListaComentarios(listaComentario);
 	}
 	
-	public BarraLateral criarBarraLateral(String conteudo, String border, String hight, String margin, String padding, String width){
-		BarraLateral barraLateral = new BarraLateral(conteudo, border, hight, margin, padding, width);
+	public BarraLateral criarBarraLateral(String conteudo/*, String border, String hight, String margin, String padding, String width*/){
+		BarraLateral barraLateral = new BarraLateral(conteudo/*, border, hight, margin, padding, width*/);
 		return barraLateral;
 	}
 	
 	public Rodape criarRodape(String contatoTelefone, String contatoEmail,
-			String contatoEndereco, String copyright, String border, String height, String margin, String padding, String width) {
+			String contatoEndereco, String copyright/*, String border, String height, String margin, String padding, String width*/) {
 		
-		Rodape rodape = new Rodape(contatoTelefone, contatoEmail, contatoEndereco, copyright, border,
-				height, margin, padding, width);
+		Rodape rodape = new Rodape(contatoTelefone, contatoEmail, contatoEndereco, copyright/*, border,
+				height, margin, padding, width*/);
 		
 		return rodape;
 		
 	}
 	
-	public String getCssScriptBarraLateral(BarraLateral barralateral, String html){
+	public void criarHtml(String html, String nomeDoc){
+
+		//Site/arquivoHtml - seria bom salvar nessa pasta
+		BufferedWriter br;
+		try {
+			br = new BufferedWriter(new FileWriter(new File(nomeDoc+".html")));
+			br.write(html);  
+			br.close();
+			System.out.println("Arquivo "+nomeDoc+".html criado com sucesso!");
+		} catch (IOException e) {
+			e.printStackTrace();
+			System.out.println("Não foi possível criar o arquivo!");
+		}  
+		
+	}
+	
+/*	public String getCssScriptBarraLateral(BarraLateral barralateral, String html){
 		String css;
 
 		css = html+"{"
@@ -211,23 +230,6 @@ public class Fachada {
 				+"padding:"+rodape.getLayout().getPadding()+";"
 				+"}";
 		return css;
-	}
-	
-	public String criarHtml(String html, String css){
-		String docHtml = html;
-		//String sql = "SELECT * FROM clientes";  
-		//String resultado = "";  
-		StringTokenizer tkSql = new StringTokenizer(docHtml);  
-		  
-		while (tkSql.hasMoreTokens()) {  
-		   String token = tkSql.nextToken();  
-		  
-		   if (token.equalsIgnoreCase("<header>") || token.equalsIgnoreCase("</header>")) {  
-		      resultado += "   
-		 ";  
-		   }  
-		   resultado += token;  
-		}  
-		return docHtml;
-	}
+	}*/
+
 }

@@ -1,6 +1,6 @@
 package br.fucapi.persistencia;
 
-public class Css {
+/*public class Css {
 	
 	private String hight;
 	private String width;
@@ -64,4 +64,4 @@ public class Css {
 	
 	
 
-}
+}*/

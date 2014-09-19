@@ -1,23 +1,20 @@
 package br.fucapi.bean;
 import java.sql.Date;
 
-import br.fucapi.persistencia.Css;
-
-
 public class Comentario {
 	
 	private String nome;
 	private String email;
 	private String texto;
 	private Date data;
-	private Css layout;
+//	private Css layout;
 	
-	public Comentario(String nome, String email, String texto, Date data, String border, String hight, String margin, String padding, String width) {
-		this.layout.setBorder(border);
-		this.layout.setHight(hight);
-		this.layout.setMargin(margin);
-		this.layout.setPadding(padding);
-		this.layout.setWidth(width);
+	public Comentario(String nome, String email, String texto, Date data/*, String border, String hight, String margin, String padding, String width*/) {
+//		this.layout.setBorder(border);
+//		this.layout.setHight(hight);
+//		this.layout.setMargin(margin);
+//		this.layout.setPadding(padding);
+//		this.layout.setWidth(width);
 		this.nome = nome;
 		this.email = email;
 		this.texto = texto;
@@ -26,8 +23,8 @@ public class Comentario {
 	
 	@Override
 	public String toString() {
-		return "\nComentario [nome=" + nome + ", email=" + email + ", texto="
-				+ texto + ", data=" + data + ", layout=" + layout + "]";
+		return "Comentario [nome=" + nome + ", email=" + email + ", texto="
+				+ texto + ", data=" + data + "]";
 	}
 
 	public String getNome() {
@@ -61,7 +58,7 @@ public class Comentario {
 	public void setData(Date data) {
 		this.data = data;
 	}
-
+/*
 	public Css getLayout() {
 		return layout;
 	}
@@ -69,5 +66,5 @@ public class Comentario {
 	public void setLayout(Css layout) {
 		this.layout = layout;
 	}
-
+*/
 }

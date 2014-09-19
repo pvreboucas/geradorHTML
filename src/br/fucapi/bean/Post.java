@@ -3,19 +3,18 @@ package br.fucapi.bean;
 import java.sql.Date;
 import java.util.ArrayList;
 
-import br.fucapi.persistencia.Css;
 
 
 public class Post {
 	
-	private Css layout;
+//	private Css layout;
 	private ArrayList<Comentario> listaComentarios;
 	private String conteudo;
 	private Date data;
 	private String uriPost;
 	
-	public Post(String conteudo, Date data, String uriPost, String border, String hight, String margin, String padding, String width) {
-		this.layout = new Css(hight, width, border, margin, padding);
+	public Post(String conteudo, Date data, String uriPost/*, String border, String hight, String margin, String padding, String width*/) {
+//		this.layout = new Css(hight, width, border, margin, padding);
 		this.conteudo = conteudo;
 		this.data = data;
 		this.uriPost = uriPost;
@@ -23,17 +22,17 @@ public class Post {
 	
 	@Override
 	public String toString() {
-		return "Post [layout=" + layout + ", data=" + data + ", uriPost="
-				+ uriPost + "]";
+		return "Post [listaComentarios=" + listaComentarios + ", conteudo="
+				+ conteudo + ", data=" + data + ", uriPost=" + uriPost + "]";
 	}
-	
+/*
 	public Css getLayout() {
 		return layout;
 	}
 	public void setLayout(Css layout) {
 		this.layout = layout;
 	}
-	
+*/	
 	public ArrayList<Comentario> getListaComentarios() {
 		return listaComentarios;
 	}
@@ -60,7 +59,7 @@ public class Post {
 	public void setUriPost(String uriPost) {
 		this.uriPost = uriPost;
 	}
-	
+/*	
 	public void adicionarComentario(Comentario comentario){
 		listaComentarios.add(comentario);
 	}
@@ -82,6 +81,6 @@ public class Post {
 		}
 	}
 	
-
+*/
 
 }
